@@ -1,13 +1,20 @@
 import { useState } from "react";
 import "./App.css";
 import TodoForm from "./components/TodoForm";
+import { Todo } from "./types/todoTypes";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const onCreateTodo = (data: Todo) => {
+    setTodos((prev) => [...prev, data]);
+  };
+
+  console.log(todos);
 
   return (
     <div className="App">
-      <TodoForm />
+      <TodoForm onCreate={onCreateTodo} />
     </div>
   );
 }

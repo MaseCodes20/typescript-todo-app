@@ -1,6 +1,11 @@
 import React, { FormEvent, useState } from "react";
+import { Todo } from "../types/todoTypes";
 
-function TodoForm() {
+type TodoFormProps = {
+  onCreate: (data: Todo) => void;
+};
+
+function TodoForm({ onCreate }: TodoFormProps) {
   const [todo, setTodo] = useState("");
 
   const submitTodo = (e: FormEvent) => {
@@ -12,7 +17,7 @@ function TodoForm() {
       isComplete: false,
     };
 
-    console.log(data);
+    onCreate(data);
   };
 
   return (
