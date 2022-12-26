@@ -33,22 +33,26 @@ function Task({ todo, onUpdate, onDelete }: TaskProps) {
   // console.log(currentTask);
 
   return (
-    <div>
-      {isEditText ? (
-        <UpdateTaskForm
-          todo={todo}
-          onUpdate={onUpdate}
-          setIsEditText={setIsEditText}
-        />
-      ) : (
-        <button onClick={() => setIsEditText(true)}>
-          <h1>{task}</h1>
-        </button>
-      )}
+    <div className="max-w-[300px]">
+      <div>
+        {isEditText ? (
+          <UpdateTaskForm
+            todo={todo}
+            onUpdate={onUpdate}
+            setIsEditText={setIsEditText}
+          />
+        ) : (
+          <button onClick={() => setIsEditText(true)}>
+            <h1>{task}</h1>
+          </button>
+        )}
+      </div>
 
-      <CompleteButton toggle={toggleComplete} isComplete={isComplete} />
+      <div className="flex justify-between items-center">
+        <CompleteButton toggle={toggleComplete} isComplete={isComplete} />
 
-      <DeleteButton deleteTodo={deleteTodo} />
+        <DeleteButton deleteTodo={deleteTodo} />
+      </div>
     </div>
   );
 }
