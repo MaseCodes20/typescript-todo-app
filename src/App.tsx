@@ -23,11 +23,15 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const deleteTodo = (id: string) => {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="">
       <TodoForm onCreate={onCreateTodo} />
 
-      <Todos todos={todos} onUpdate={updateTodo} />
+      <Todos todos={todos} onUpdate={updateTodo} onDelete={deleteTodo} />
     </div>
   );
 }
