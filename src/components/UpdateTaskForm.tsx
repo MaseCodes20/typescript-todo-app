@@ -12,12 +12,13 @@ function UpdateTaskForm({
   onUpdate,
   setIsEditText,
 }: UptateTaskFormProps) {
-  const [currentTask, setCurrentTask] = useState(todo.todo);
+  const [currentTask, setCurrentTask] = useState(todo.name);
+  const [currentTaskDesc, setCurrentTaskDesc] = useState(todo.description);
 
   const updateTask = (e: FormEvent) => {
     e.preventDefault();
 
-    const data = { ...todo, todo: currentTask };
+    const data = { ...todo, todo: currentTask, description: currentTaskDesc };
 
     onUpdate(todo.id, data);
     setIsEditText(false);
@@ -26,11 +27,19 @@ function UpdateTaskForm({
   return (
     <form onSubmit={updateTask}>
       <input
-        type="text"
-        name="todo"
-        id="tod"
+        type="name"
+        name="name"
+        id="name"
         value={currentTask}
         onChange={(e) => setCurrentTask(e.target.value)}
+      />
+
+      <input
+        type="description"
+        name="description"
+        id="description"
+        value={currentTaskDesc}
+        onChange={(e) => setCurrentTaskDesc(e.target.value)}
       />
 
       <button type="submit" hidden>

@@ -28,10 +28,10 @@ function Task({ todo, onUpdate, onDelete }: TaskProps) {
     onDelete(todo.id);
   };
 
-  const { todo: task, isComplete } = todo;
+  const { name, description, isComplete } = todo;
 
   return (
-    <div className="flex items-center max-w-[300px] p-2 bg-gray-200 m-3 rounded-md">
+    <div className="flex items-center max-w-[350px] p-2 bg-gray-200 m-3 rounded-md">
       <div className="flex-1">
         {isEditText ? (
           <UpdateTaskForm
@@ -40,10 +40,15 @@ function Task({ todo, onUpdate, onDelete }: TaskProps) {
             setIsEditText={setIsEditText}
           />
         ) : (
-          <button onClick={() => setIsEditText(true)} disabled={isComplete}>
+          <button
+            onClick={() => setIsEditText(true)}
+            disabled={isComplete}
+            className="text-left"
+          >
             <h1 className={`${isComplete && "line-through text-gray-400"}`}>
-              {task}
+              {name}
             </h1>
+            <p className="text-xs truncate">{description}</p>
           </button>
         )}
       </div>
