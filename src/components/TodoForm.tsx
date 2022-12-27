@@ -20,6 +20,8 @@ function TodoForm({ onCreate }: TodoFormProps) {
     };
 
     onCreate(data);
+    setName("");
+    setDescription("");
   };
 
   return (
@@ -35,6 +37,7 @@ function TodoForm({ onCreate }: TodoFormProps) {
           type="text"
           name="name"
           id="name"
+          value={name}
           onChange={(e) => setName(e.target.value)}
           className="border-[1px] rounded-md mr-2 border-gray-500 hover:border-black focus:ring-0 focus:outline-none focus:border-b focus:border-black"
         />
@@ -49,6 +52,7 @@ function TodoForm({ onCreate }: TodoFormProps) {
           type="text"
           name="description"
           id="description"
+          value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="border-[1px] rounded-md mr-2 border-gray-500 hover:border-black focus:ring-0 focus:outline-none focus:border-b focus:border-black"
         />
