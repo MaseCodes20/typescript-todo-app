@@ -3,24 +3,18 @@ import "./App.css";
 import TodoForm from "./components/TodoForm";
 import Todos from "./components/Todos";
 import { Todo } from "./types/todoTypes";
+import { updatedTodos } from "./utils/updatedTodos";
+import { addTodo } from "./utils/addTodo";
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const onCreateTodo = (data: Todo) => {
-    setTodos((prev) => [...prev, data]);
+    setTodos((previousTodos) => addTodo({ previousTodos, data }));
   };
 
   const updateTodo = (id: string, data: Todo) => {
-    const updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return data;
-      } else {
-        return todo;
-      }
-    });
-
-    setTodos(updatedTodos);
+    setTodos(updatedTodos({ id, data, todos }));
   };
 
   const deleteTodo = (id: string) => {
