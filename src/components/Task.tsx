@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Todo } from "../types/todoTypes";
 import CompleteButton from "./CompleteButton";
 import DeleteButton from "./DeleteButton";
@@ -30,11 +30,9 @@ function Task({ todo, onUpdate, onDelete }: TaskProps) {
 
   const { todo: task, isComplete } = todo;
 
-  // console.log(currentTask);
-
   return (
-    <div className="max-w-[300px]">
-      <div>
+    <div className="flex items-center max-w-[300px] p-2 bg-gray-200 m-3 rounded-md">
+      <div className="flex-1">
         {isEditText ? (
           <UpdateTaskForm
             todo={todo}
@@ -42,8 +40,10 @@ function Task({ todo, onUpdate, onDelete }: TaskProps) {
             setIsEditText={setIsEditText}
           />
         ) : (
-          <button onClick={() => setIsEditText(true)}>
-            <h1>{task}</h1>
+          <button onClick={() => setIsEditText(true)} disabled={isComplete}>
+            <h1 className={`${isComplete && "line-through text-gray-400"}`}>
+              {task}
+            </h1>
           </button>
         )}
       </div>
