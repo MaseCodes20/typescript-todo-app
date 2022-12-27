@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { Todo } from "../types/todoTypes";
 
 type UptateTaskFormProps = {
@@ -18,7 +18,7 @@ function UpdateTaskForm({
   const updateTask = (e: FormEvent) => {
     e.preventDefault();
 
-    const data = { ...todo, todo: currentTask, description: currentTaskDesc };
+    const data = { ...todo, name: currentTask, description: currentTaskDesc };
 
     onUpdate(todo.id, data);
     setIsEditText(false);
