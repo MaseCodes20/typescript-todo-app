@@ -28,7 +28,9 @@ function App() {
   };
 
   return (
-    <div className="">
+    <div className="w-full py-5">
+      <h1 className="text-3xl font-bold text-center">Todos</h1>
+
       <TodoForm onCreate={onCreateTodo} />
 
       <Todos todos={todos} onUpdate={updateTodo} onDelete={deleteTodo} />

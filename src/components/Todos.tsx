@@ -9,7 +9,7 @@ type TodosProps = {
 
 function Todos({ todos, onUpdate, onDelete }: TodosProps) {
   return (
-    <div>
+    <>
       {todos.map((todo) => (
         <Task
           key={todo.id}
@@ -18,7 +18,7 @@ function Todos({ todos, onUpdate, onDelete }: TodosProps) {
           onDelete={onDelete}
         />
       ))}
-    </div>
+    </>
   );
 }
 

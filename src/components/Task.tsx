@@ -31,7 +31,7 @@ function Task({ todo, onUpdate, onDelete }: TaskProps) {
   const { name, description, isComplete } = todo;
 
   return (
-    <div className="flex items-center max-w-[350px] p-2 bg-gray-200 m-3 rounded-md">
+    <div className="flex items-center mx-auto max-w-[350px] p-2 bg-gray-200 mb-3 rounded-md">
       <div className="flex-1">
         {isEditText ? (
           <UpdateTaskForm
@@ -45,10 +45,16 @@ function Task({ todo, onUpdate, onDelete }: TaskProps) {
             disabled={isComplete}
             className="text-left"
           >
-            <h1 className={`${isComplete && "line-through text-gray-400"}`}>
+            <h1
+              className={`${
+                isComplete ? "line-through text-gray-400" : "text-yellow-500"
+              }  font-bold`}
+            >
               {name}
             </h1>
-            <p className="text-xs truncate">{description}</p>
+            <p className={`${isComplete && "text-gray-400"} text-xs truncate`}>
+              {description}
+            </p>
           </button>
         )}
       </div>

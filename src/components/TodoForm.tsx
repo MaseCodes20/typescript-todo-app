@@ -23,9 +23,14 @@ function TodoForm({ onCreate }: TodoFormProps) {
   };
 
   return (
-    <form onSubmit={submitTodo} className="my-5 max-w-[300px]">
-      <div className="flex flex-col">
-        <label htmlFor="name">Name</label>
+    <form
+      onSubmit={submitTodo}
+      className="my-5 mx-auto p-2 bg-gray-200 rounded-md max-w-[300px]"
+    >
+      <div className="flex flex-col mb-3">
+        <label className="mb-1" htmlFor="name">
+          Name
+        </label>
         <input
           type="text"
           name="name"
@@ -35,8 +40,11 @@ function TodoForm({ onCreate }: TodoFormProps) {
         />
       </div>
 
-      <div className="flex flex-col">
-        <label htmlFor="description"> Description</label>
+      <div className="flex flex-col mb-3">
+        <label className="mb-1" htmlFor="description">
+          {" "}
+          Description
+        </label>
         <input
           type="text"
           name="description"
@@ -49,8 +57,8 @@ function TodoForm({ onCreate }: TodoFormProps) {
       <div className="w-full flex justify-end p-2">
         <input
           type="submit"
-          value="submit"
-          className="p-2 bg-yellow-400 rounded-md"
+          value="Submit"
+          className="p-2 bg-yellow-500 cursor-pointer hover:bg-yellow-700 hover:text-white text-black font-semibold rounded-md"
         />
       </div>
     </form>
