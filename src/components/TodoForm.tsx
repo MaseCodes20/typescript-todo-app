@@ -12,6 +12,8 @@ function TodoForm({ onCreate }: TodoFormProps) {
   const submitTodo = (e: FormEvent) => {
     e.preventDefault();
 
+    if (name === "") return;
+
     let data = {
       id: crypto.randomUUID(),
       name,

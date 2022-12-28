@@ -32,6 +32,7 @@ function UpdateTaskForm({
         id="name"
         value={currentTask}
         onChange={(e) => setCurrentTask(e.target.value)}
+        className="mb-1"
       />
 
       <input
