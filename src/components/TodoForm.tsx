@@ -27,7 +27,7 @@ function TodoForm({ onCreate }: TodoFormProps) {
   return (
     <form
       onSubmit={submitTodo}
-      className="my-5 mx-auto p-2 bg-gray-200 rounded-md max-w-[300px]"
+      className="my-5 mx-auto p-2 bg-gray-200 rounded-md max-w-[350px]"
     >
       <div className="flex flex-col mb-3">
         <label className="mb-1" htmlFor="name">
