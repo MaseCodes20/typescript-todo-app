@@ -52,7 +52,11 @@ function Task({ todo, onUpdate, onDelete }: TaskProps) {
             >
               {name}
             </h1>
-            <p className={`${isComplete && "text-gray-400"} text-xs truncate`}>
+            <p
+              className={`${
+                isComplete ? "text-gray-400" : "text-black"
+              } text-xs  truncate`}
+            >
               {description}
             </p>
           </button>

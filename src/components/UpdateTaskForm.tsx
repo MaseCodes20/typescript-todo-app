@@ -25,7 +25,7 @@ function UpdateTaskForm({
   };
 
   return (
-    <form onSubmit={updateTask}>
+    <form onSubmit={updateTask} className="text-black">
       <input
         type="name"
         name="name"
