@@ -7,6 +7,7 @@ import { updatedTodos } from "./utils/updatedTodos";
 import { addTodo } from "./utils/addTodo";
 import TasksCompleted from "./components/TasksCompleted";
 import DarkModeButton from "./components/DarkModeButton";
+import { removeTodo } from "./utils/deleteTodo";
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -20,7 +21,7 @@ function App() {
   };
 
   const deleteTodo = (id: string) => {
-    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+    setTodos(removeTodo(id, todos));
   };
 
   return (
