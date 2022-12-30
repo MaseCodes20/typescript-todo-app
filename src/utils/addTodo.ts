@@ -1,5 +1,5 @@
-import { AddTodo } from "../types/todoTypes";
+import { AddTodo, Todo } from "../types/todoTypes";
 
-export function addTodo({ previousTodos, data }: AddTodo) {
+export function addTodo({ previousTodos, data }: AddTodo): Todo[] {
   return [...previousTodos, data];
 }
